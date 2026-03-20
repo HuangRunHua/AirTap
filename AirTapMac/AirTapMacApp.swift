@@ -2,7 +2,7 @@ import SwiftUI
 import ApplicationServices
 
 @main
-struct RemoteControlMacApp: App {
+struct AirTapMacApp: App {
     @StateObject private var server = CommandServer()
 
     var body: some Scene {
@@ -55,7 +55,7 @@ struct StatusMenuView: View {
 
             Divider()
 
-            Button("退出 RemoteControl") {
+            Button("退出 AirTap") {
                 NSApplication.shared.terminate(nil)
             }
         }

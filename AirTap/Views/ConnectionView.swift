@@ -21,7 +21,7 @@ struct ConnectionView: View {
                     .font(.title3)
                     .foregroundStyle(.secondary)
 
-                Text("请确保 Mac 端已运行 RemoteControl")
+                Text("请确保 Mac 端已运行 AirTap")
                     .font(.caption)
                     .foregroundStyle(.tertiary)
 

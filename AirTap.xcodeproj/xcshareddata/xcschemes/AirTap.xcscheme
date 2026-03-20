@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BD4D0DA82F6BC28300AB3299"
-               BuildableName = "RemoteControl.app"
-               BlueprintName = "RemoteControl"
-               ReferencedContainer = "container:RemoteControl.xcodeproj">
+               BuildableName = "AirTap.app"
+               BlueprintName = "AirTap"
+               ReferencedContainer = "container:AirTap.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BD4D0DA82F6BC28300AB3299"
-            BuildableName = "RemoteControl.app"
-            BlueprintName = "RemoteControl"
-            ReferencedContainer = "container:RemoteControl.xcodeproj">
+            BuildableName = "AirTap.app"
+            BlueprintName = "AirTap"
+            ReferencedContainer = "container:AirTap.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BD4D0DA82F6BC28300AB3299"
-            BuildableName = "RemoteControl.app"
-            BlueprintName = "RemoteControl"
-            ReferencedContainer = "container:RemoteControl.xcodeproj">
+            BuildableName = "AirTap.app"
+            BlueprintName = "AirTap"
+            ReferencedContainer = "container:AirTap.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

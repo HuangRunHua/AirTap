@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocalNetworkUsageDescription</key>
-	<string>RemoteControl 需要访问本地网络以连接您的 Mac</string>
+	<string>AirTap 需要访问本地网络以连接您的 Mac</string>
 	<key>NSBonjourServices</key>
 	<array>
 		<string>_macremote._tcp</string>

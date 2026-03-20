@@ -1,16 +1,16 @@
 <div align="center">
 
-# RemoteControl
+# AirTap
 
-**Turn your iPhone into a wireless trackpad, keyboard & app launcher for your Mac.**
+**Your iPhone is now a wireless trackpad, keyboard & app launcher for your Mac.**
 
-用 iPhone 远程控制你的 Mac —— 触控板、键盘、App 启动器，一切尽在掌中。
+用 iPhone 隔空操控你的 Mac —— 触控板、键盘、手势、App 启动器，一切尽在指尖。
 
 [![Swift](https://img.shields.io/badge/Swift-5.9-F05138?style=flat&logo=swift&logoColor=white)](https://swift.org)
 [![Platform iOS](https://img.shields.io/badge/iOS-16.0+-007AFF?style=flat&logo=apple&logoColor=white)](https://developer.apple.com/ios/)
 [![Platform macOS](https://img.shields.io/badge/macOS-13.0+-000000?style=flat&logo=apple&logoColor=white)](https://developer.apple.com/macos/)
-[![License](https://img.shields.io/badge/License-MIT-green?style=flat)](LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/HuangRunHua/RemoteControl?style=flat&logo=github)](https://github.com/HuangRunHua/RemoteControl/stargazers)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue?style=flat)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/HuangRunHua/the-airtap-app?style=flat&logo=github)](https://github.com/HuangRunHua/the-airtap-app/stargazers)
 
 <br>
 
@@ -38,9 +38,11 @@
 |---------|-------------|
 | **App Launcher** | Browse and launch any Mac app from a beautiful adaptive grid (2x4 portrait / 4x2 landscape). Long-press to enter jiggle mode and rearrange — just like your Home Screen. |
 | **Virtual Trackpad** | Non-linear acceleration, momentum scrolling, haptic feedback. Feels like a real Apple trackpad in your pocket. |
+| **Gesture Controls** | Pinch to zoom in/out, two-finger double tap for smart zoom. Natural multi-touch gestures mapped directly to your Mac. |
 | **Full Keyboard + IME** | Type in English, Chinese, or any language. Full Input Method Editor support with candidate selection. Return key maps to Mac Return. |
 | **Shortcuts & Media** | One-tap access to Cmd+C, Cmd+V, Cmd+Tab, Cmd+W, Cmd+Z, Cmd+A, plus volume & playback controls. |
 | **Liquid Glass UI** | Floating tab bar and collapsible shortcut pills with frosted-glass material — adapts seamlessly between portrait & landscape. |
+| **Menu Bar App** | The Mac companion runs silently in the menu bar — no Dock icon, no clutter. |
 | **Zero Config** | Bonjour auto-discovery. Open both apps, done. No IP address, no pairing code. |
 
 ---
@@ -82,25 +84,25 @@ Both devices must be on the **same local network**.
 ### 1. Clone & Open
 
 ```bash
-git clone https://github.com/HuangRunHua/RemoteControl.git
-cd RemoteControl
-open RemoteControl.xcodeproj
+git clone https://github.com/HuangRunHua/the-airtap-app.git
+cd the-airtap-app
+open AirTap.xcodeproj
 ```
 
 The project contains two targets:
 
 | Target | Platform | Description |
 |--------|----------|-------------|
-| **RemoteControl** | iOS | Deploy to your iPhone / iPad |
-| **RemoteControlMac** | macOS | Run on your Mac |
+| **AirTap** | iOS | Deploy to your iPhone / iPad |
+| **AirTapMac** | macOS | Run on your Mac (menu bar app) |
 
 ### 2. Mac Setup
 
 On first launch, grant **Accessibility** permission:
 
-> System Settings → Privacy & Security → Accessibility → Enable **RemoteControlMac**
+> System Settings → Privacy & Security → Accessibility → Enable **AirTapMac**
 
-The Mac app runs as a **menu bar icon** (no Dock icon).
+The Mac app runs as a **menu bar icon** — no Dock icon, no window, completely out of the way.
 
 ### 3. Connect
 
@@ -115,6 +117,7 @@ Open the iOS app — it auto-discovers your Mac. Allow **Local Network** access 
 - Auto-fetches installed Mac apps with icons
 - 2x4 (portrait) / 4x2 (landscape) adaptive grid with pagination
 - Long-press to enter jiggle mode (iOS-style wobble + delete badge)
+- Tap feedback with scale and glow animation
 - Persistent storage — your shortcuts survive app restarts
 - Add duplicates for different workflows
 
@@ -125,6 +128,8 @@ Open the iOS app — it auto-discovers your Mac. Allow **Local Network** access 
 - **Two-finger tap** → Right click
 - **Double tap** → Double click
 - **Two-finger scroll** → Scroll with momentum physics
+- **Pinch** → Zoom in / Zoom out
+- **Two-finger double tap** → Smart zoom
 - **Haptic feedback** on every interaction
 
 ### Keyboard & IME
@@ -153,8 +158,8 @@ Open the iOS app — it auto-discovers your Mac. Allow **Local Network** access 
 ## Project Structure
 
 ```
-RemoteControl/
-├── RemoteControl/                  # iOS App
+AirTap/
+├── AirTap/                         # iOS App
 │   ├── ContentView.swift           # Main layout, tab bar, shortcuts overlay
 │   ├── Services/
 │   │   └── ConnectionManager.swift # Bonjour discovery & TCP connection
@@ -166,10 +171,10 @@ RemoteControl/
 │       ├── AppGridView.swift       # App grid (pagination, edit mode)
 │       ├── AppIconView.swift       # App icon (glass effect, jiggle)
 │       ├── AppPickerView.swift     # Add-app picker
-│       ├── TrackpadView.swift      # Virtual trackpad & keyboard input
+│       ├── TrackpadView.swift      # Virtual trackpad & gesture input
 │       └── ShortcutBarView.swift   # Shortcut bar
 │
-├── RemoteControlMac/               # macOS App
+├── AirTapMac/                      # macOS Menu Bar App
 │   ├── Services/
 │   │   ├── CommandServer.swift     # TCP server & command dispatch
 │   │   ├── InputSimulator.swift    # CGEvent input simulation
@@ -178,7 +183,8 @@ RemoteControl/
 │   └── Shared/
 │       └── RemoteProtocol.swift    # Communication protocol (Mac side)
 │
-└── RemoteControl.xcodeproj
+├── AppIcon.icon                    # Xcode Icon Composer asset
+└── AirTap.xcodeproj
 ```
 
 ---
@@ -191,7 +197,7 @@ RemoteControl/
 | **Network.framework** | Bonjour discovery + TCP communication |
 | **CGEvent** | macOS mouse & keyboard simulation |
 | **Accessibility API** | macOS text field focus detection |
-| **UIKit** | Gesture recognizers (pan, tap, long-press) |
+| **UIKit** | Gesture recognizers (pan, tap, pinch, long-press) |
 | **Core Haptics** | Tactile feedback |
 
 ---
@@ -207,6 +213,7 @@ RemoteControl/
 
 ## Roadmap
 
+- [x] Pinch-to-zoom gesture controls
 - [ ] Multi-Mac device selection
 - [ ] TLS encrypted communication
 - [ ] PIN / password authentication
@@ -231,7 +238,7 @@ Contributions are welcome! Feel free to open an issue or submit a pull request.
 
 ## License
 
-[MIT License](LICENSE) — use it, modify it, ship it.
+[Apache License 2.0](LICENSE) — use it, modify it, ship it.
 
 ---
 
@@ -243,6 +250,6 @@ Inspired by [Choclift](https://choclift.com/). Built as a free, open-source alte
 
 <div align="center">
 
-**If you find this useful, consider giving it a star!**
+**If you find AirTap useful, consider giving it a ⭐!**
 
 </div>

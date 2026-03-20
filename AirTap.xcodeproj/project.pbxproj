@@ -12,20 +12,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BD4D0DA92F6BC28300AB3299 /* RemoteControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD4D0E0F2F6BCF6800AB3299 /* RemoteControlMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteControlMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD4D0DA92F6BC28300AB3299 /* AirTap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirTap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD4D0E0F2F6BCF6800AB3299 /* AirTapMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirTapMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD6998E02F6CF014005E56A9 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		BD4D0DAB2F6BC28300AB3299 /* RemoteControl */ = {
+		BD4D0DAB2F6BC28300AB3299 /* AirTap */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = RemoteControl;
+			path = AirTap;
 			sourceTree = "<group>";
 		};
-		BD4D0E102F6BCF6800AB3299 /* RemoteControlMac */ = {
+		BD4D0E102F6BCF6800AB3299 /* AirTapMac */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = RemoteControlMac;
+			path = AirTapMac;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -52,8 +52,8 @@
 			isa = PBXGroup;
 			children = (
 				BD6998E02F6CF014005E56A9 /* AppIcon.icon */,
-				BD4D0DAB2F6BC28300AB3299 /* RemoteControl */,
-				BD4D0E102F6BCF6800AB3299 /* RemoteControlMac */,
+				BD4D0DAB2F6BC28300AB3299 /* AirTap */,
+				BD4D0E102F6BCF6800AB3299 /* AirTapMac */,
 				BD4D0DAA2F6BC28300AB3299 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,8 +61,8 @@
 		BD4D0DAA2F6BC28300AB3299 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BD4D0DA92F6BC28300AB3299 /* RemoteControl.app */,
-				BD4D0E0F2F6BCF6800AB3299 /* RemoteControlMac.app */,
+				BD4D0DA92F6BC28300AB3299 /* AirTap.app */,
+				BD4D0E0F2F6BCF6800AB3299 /* AirTapMac.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,9 +70,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BD4D0DA82F6BC28300AB3299 /* RemoteControl */ = {
+		BD4D0DA82F6BC28300AB3299 /* AirTap */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BD4D0DB42F6BC28400AB3299 /* Build configuration list for PBXNativeTarget "RemoteControl" */;
+			buildConfigurationList = BD4D0DB42F6BC28400AB3299 /* Build configuration list for PBXNativeTarget "AirTap" */;
 			buildPhases = (
 				BD4D0DA52F6BC28300AB3299 /* Sources */,
 				BD4D0DA62F6BC28300AB3299 /* Frameworks */,
@@ -83,18 +83,18 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				BD4D0DAB2F6BC28300AB3299 /* RemoteControl */,
+				BD4D0DAB2F6BC28300AB3299 /* AirTap */,
 			);
-			name = RemoteControl;
+			name = AirTap;
 			packageProductDependencies = (
 			);
-			productName = RemoteControl;
-			productReference = BD4D0DA92F6BC28300AB3299 /* RemoteControl.app */;
+			productName = AirTap;
+			productReference = BD4D0DA92F6BC28300AB3299 /* AirTap.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BD4D0E0E2F6BCF6800AB3299 /* RemoteControlMac */ = {
+		BD4D0E0E2F6BCF6800AB3299 /* AirTapMac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BD4D0E192F6BCF6900AB3299 /* Build configuration list for PBXNativeTarget "RemoteControlMac" */;
+			buildConfigurationList = BD4D0E192F6BCF6900AB3299 /* Build configuration list for PBXNativeTarget "AirTapMac" */;
 			buildPhases = (
 				BD4D0E0B2F6BCF6800AB3299 /* Sources */,
 				BD4D0E0C2F6BCF6800AB3299 /* Frameworks */,
@@ -105,13 +105,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				BD4D0E102F6BCF6800AB3299 /* RemoteControlMac */,
+				BD4D0E102F6BCF6800AB3299 /* AirTapMac */,
 			);
-			name = RemoteControlMac;
+			name = AirTapMac;
 			packageProductDependencies = (
 			);
-			productName = RemoteControlMac;
-			productReference = BD4D0E0F2F6BCF6800AB3299 /* RemoteControlMac.app */;
+			productName = AirTapMac;
+			productReference = BD4D0E0F2F6BCF6800AB3299 /* AirTapMac.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -132,7 +132,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BD4D0DA42F6BC28300AB3299 /* Build configuration list for PBXProject "RemoteControl" */;
+			buildConfigurationList = BD4D0DA42F6BC28300AB3299 /* Build configuration list for PBXProject "AirTap" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -146,8 +146,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BD4D0DA82F6BC28300AB3299 /* RemoteControl */,
-				BD4D0E0E2F6BCF6800AB3299 /* RemoteControlMac */,
+				BD4D0DA82F6BC28300AB3299 /* AirTap */,
+				BD4D0E0E2F6BCF6800AB3299 /* AirTapMac */,
 			);
 		};
 /* End PBXProject section */
@@ -316,7 +316,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = YRB62S584T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -332,7 +332,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.noreply-email.RemoteControl";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.noreply-email.AirTap";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -350,7 +350,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = YRB62S584T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -366,7 +366,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.noreply-email.RemoteControl";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.noreply-email.AirTap";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -385,7 +385,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = YRB62S584T;
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -401,7 +401,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.noreply-email.RemoteControlMac";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.noreply-email.AirTapMac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = macosx;
@@ -421,7 +421,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = YRB62S584T;
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -437,7 +437,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.noreply-email.RemoteControlMac";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.noreply-email.AirTapMac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = macosx;
@@ -453,7 +453,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BD4D0DA42F6BC28300AB3299 /* Build configuration list for PBXProject "RemoteControl" */ = {
+		BD4D0DA42F6BC28300AB3299 /* Build configuration list for PBXProject "AirTap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD4D0DB22F6BC28400AB3299 /* Debug */,
@@ -462,7 +462,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BD4D0DB42F6BC28400AB3299 /* Build configuration list for PBXNativeTarget "RemoteControl" */ = {
+		BD4D0DB42F6BC28400AB3299 /* Build configuration list for PBXNativeTarget "AirTap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD4D0DB52F6BC28400AB3299 /* Debug */,
@@ -471,7 +471,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BD4D0E192F6BCF6900AB3299 /* Build configuration list for PBXNativeTarget "RemoteControlMac" */ = {
+		BD4D0E192F6BCF6900AB3299 /* Build configuration list for PBXNativeTarget "AirTapMac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD4D0E172F6BCF6900AB3299 /* Debug */,
