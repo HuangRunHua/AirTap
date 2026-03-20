@@ -34,24 +34,17 @@
 
 ## Demo
 
-<table>
-  <tr>
-    <td align="center"><b>Launch App</b></td>
-    <td align="center"><b>Trackpad</b></td>
-  </tr>
-  <tr>
-    <td><video src="pic/launch_app.mp4" width="360" controls></video></td>
-    <td><video src="pic/trackpad.mp4" width="360" controls></video></td>
-  </tr>
-  <tr>
-    <td align="center"><b>Delete App</b></td>
-    <td align="center"><b>Voice Control</b></td>
-  </tr>
-  <tr>
-    <td><video src="pic/delete_app.mp4" width="360" controls></video></td>
-    <td><video src="pic/voice_control.mp4" width="360" controls></video></td>
-  </tr>
-</table>
+### Launch App
+<video src="pic/launch_app.mp4" controls width="600"></video>
+
+### Trackpad
+<video src="pic/trackpad.mp4" controls width="600"></video>
+
+### Delete App
+<video src="pic/delete_app.mp4" controls width="600"></video>
+
+### Voice Control
+<video src="pic/voice_control.mp4" controls width="600"></video>
 
 ---
 
