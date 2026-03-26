@@ -1,5 +1,6 @@
 import SwiftUI
 import UIKit
+import os.log
 
 struct TrackpadView: View {
     @ObservedObject var viewModel: RemoteViewModel
@@ -118,6 +119,24 @@ final class TrackpadUIView: UIView {
     private let momentumDecay: CGFloat = 0.95
     private let momentumStopThreshold: CGFloat = 15.0
 
+    // MARK: - Multi-finger swipe state
+
+    private enum SwipeDirection { case undetermined, horizontal, vertical }
+
+    private struct SwipeState {
+        var direction: SwipeDirection = .undetermined
+        var cumulativeTranslation: CGPoint = .zero
+        var thresholdReached = false
+        mutating func reset() { direction = .undetermined; cumulativeTranslation = .zero; thresholdReached = false }
+    }
+
+    private var swipeState = SwipeState()
+    private let swipeThreshold: CGFloat = 100
+    private let directionLockRatio: CGFloat = 1.5
+    private let directionLockMinDisplacement: CGFloat = 15
+
+    private static let gestureLog = Logger(subsystem: "com.airtap", category: "MultiFingerSwipe")
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -161,7 +180,11 @@ final class TrackpadUIView: UIView {
 
         let pinch = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch))
 
-        [tap, doubleTap, twoFingerDoubleTap, twoFingerTap, pan, twoFingerPan, pinch].forEach(addGestureRecognizer)
+        let multiFingerPan = UIPanGestureRecognizer(target: self, action: #selector(handleMultiFingerPan))
+        multiFingerPan.minimumNumberOfTouches = 3
+        multiFingerPan.maximumNumberOfTouches = 4
+
+        [tap, doubleTap, twoFingerDoubleTap, twoFingerTap, pan, twoFingerPan, pinch, multiFingerPan].forEach(addGestureRecognizer)
     }
 
     private func accelerationFactor(for velocity: CGPoint) -> CGFloat {
@@ -223,6 +246,79 @@ final class TrackpadUIView: UIView {
         default: break
         }
     }
+
+    // MARK: - Multi-finger swipe (3/4 fingers → switch space / mission control)
+
+    @objc private func handleMultiFingerPan(_ g: UIPanGestureRecognizer) {
+        switch g.state {
+        case .began:
+            swipeState.reset()
+            Self.gestureLog.debug("Multi-finger pan began – touches: \(g.numberOfTouches)")
+
+        case .changed:
+            let translation = g.translation(in: self)
+            swipeState.cumulativeTranslation = translation
+
+            if swipeState.direction == .undetermined {
+                let absX = abs(translation.x)
+                let absY = abs(translation.y)
+                if absX > directionLockMinDisplacement || absY > directionLockMinDisplacement {
+                    if absX > absY * directionLockRatio {
+                        swipeState.direction = .horizontal
+                    } else if absY > absX * directionLockRatio {
+                        swipeState.direction = .vertical
+                    }
+                }
+            }
+
+            let wasReached = swipeState.thresholdReached
+            switch swipeState.direction {
+            case .horizontal:
+                swipeState.thresholdReached = abs(translation.x) >= swipeThreshold
+            case .vertical:
+                swipeState.thresholdReached = abs(translation.y) >= swipeThreshold
+            case .undetermined:
+                break
+            }
+
+            if swipeState.thresholdReached != wasReached {
+                if swipeState.thresholdReached {
+                    mediumImpact.impactOccurred()
+                } else {
+                    lightImpact.impactOccurred()
+                }
+            }
+
+        case .ended:
+            Self.gestureLog.debug("Multi-finger pan ended – direction: \(String(describing: self.swipeState.direction)), threshold: \(self.swipeState.thresholdReached), tx: \(self.swipeState.cumulativeTranslation.x), ty: \(self.swipeState.cumulativeTranslation.y)")
+
+            if swipeState.thresholdReached {
+                heavyImpact.impactOccurred()
+                switch swipeState.direction {
+                case .horizontal:
+                    if swipeState.cumulativeTranslation.x < 0 {
+                        onSwitchSpaceLeft?()
+                    } else {
+                        onSwitchSpaceRight?()
+                    }
+                case .vertical:
+                    onMissionControl?()
+                case .undetermined:
+                    break
+                }
+            }
+            swipeState.reset()
+
+        case .cancelled, .failed:
+            Self.gestureLog.debug("Multi-finger pan cancelled/failed")
+            swipeState.reset()
+
+        default:
+            break
+        }
+    }
+
+    // MARK: - Scroll momentum
 
     private func startMomentum(velocity: CGPoint) {
         momentumVelocity = velocity

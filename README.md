@@ -54,7 +54,7 @@
 |---------|-------------|
 | **App Launcher** | Browse and launch any Mac app from a beautiful adaptive grid (2x4 portrait / 4x2 landscape). Long-press to enter jiggle mode and rearrange — just like your Home Screen. |
 | **Virtual Trackpad** | Non-linear acceleration, momentum scrolling, haptic feedback. Feels like a real Apple trackpad in your pocket. |
-| **Gesture Controls** | Pinch to zoom in/out, two-finger double tap for smart zoom. Natural multi-touch gestures mapped directly to your Mac. |
+| **Gesture Controls** | Pinch to zoom in/out, two-finger double tap for smart zoom. 3/4-finger swipe to switch spaces and trigger Mission Control. Natural multi-touch gestures mapped directly to your Mac. |
 | **Full Keyboard + IME** | Type in English, Chinese, or any language. Full Input Method Editor support with candidate selection. Return key maps to Mac Return. |
 | **Shortcuts & Media** | One-tap access to Cmd+C, Cmd+V, Cmd+Tab, Cmd+W, Cmd+Z, Cmd+A, plus volume & playback controls. |
 | **Liquid Glass UI** | Floating tab bar and collapsible shortcut pills with frosted-glass material — adapts seamlessly between portrait & landscape. |
@@ -146,6 +146,8 @@ Open the iOS app — it auto-discovers your Mac. Allow **Local Network** access 
 - **Two-finger scroll** → Scroll with momentum physics
 - **Pinch** → Zoom in / Zoom out
 - **Two-finger double tap** → Smart zoom
+- **Three/four-finger horizontal swipe** → Switch spaces (native sliding animation)
+- **Three/four-finger vertical swipe** → Mission Control (toggle)
 - **Haptic feedback** on every interaction
 
 ### Keyboard & IME
@@ -194,6 +196,7 @@ AirTap/
 │   ├── Services/
 │   │   ├── CommandServer.swift     # TCP server & command dispatch
 │   │   ├── InputSimulator.swift    # CGEvent input simulation
+│   │   ├── PrivateSystemAPI.swift  # macOS private APIs (space switching, Mission Control)
 │   │   ├── AccessibilityMonitor.swift # Text field focus detection
 │   │   └── AppManager.swift        # App scanning & icon extraction
 │   └── Shared/
@@ -211,7 +214,7 @@ AirTap/
 |-----------|-------|
 | **SwiftUI** | iOS interface & layout |
 | **Network.framework** | Bonjour discovery + TCP communication |
-| **CGEvent** | macOS mouse & keyboard simulation |
+| **CGEvent** | macOS mouse, keyboard & gesture simulation (including private DockSwipe events for native space switching) |
 | **Accessibility API** | macOS text field focus detection |
 | **UIKit** | Gesture recognizers (pan, tap, pinch, long-press) |
 | **Core Haptics** | Tactile feedback |
@@ -230,6 +233,7 @@ AirTap/
 ## Roadmap
 
 - [x] Pinch-to-zoom gesture controls
+- [x] Multi-finger space switching & Mission Control
 - [ ] Multi-Mac device selection
 - [ ] TLS encrypted communication
 - [ ] PIN / password authentication

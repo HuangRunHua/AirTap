@@ -97,15 +97,15 @@ final class InputSimulator {
     }
 
     func switchSpaceLeft() {
-        keyPress(keyCode: 123, modifiers: CGEventFlags.maskControl.rawValue)
+        PrivateSystemAPI.shared.switchSpace(direction: -1)
     }
 
     func switchSpaceRight() {
-        keyPress(keyCode: 124, modifiers: CGEventFlags.maskControl.rawValue)
+        PrivateSystemAPI.shared.switchSpace(direction: 1)
     }
 
     func missionControl() {
-        keyPress(keyCode: 126, modifiers: CGEventFlags.maskControl.rawValue)
+        PrivateSystemAPI.shared.triggerMissionControl()
     }
 
     // MARK: - Media keys
