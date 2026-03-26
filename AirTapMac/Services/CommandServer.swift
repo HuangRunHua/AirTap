@@ -155,9 +155,15 @@ class CommandServer: ObservableObject {
         case .zoomIn:           inputSimulator.zoomIn()
         case .zoomOut:          inputSimulator.zoomOut()
         case .smartZoom:        inputSimulator.smartZoom()
-        case .switchSpaceLeft:  inputSimulator.switchSpaceLeft()
-        case .switchSpaceRight: inputSimulator.switchSpaceRight()
-        case .missionControl:   inputSimulator.missionControl()
+        case .switchSpaceLeft:
+            print("[CommandServer] switchSpaceLeft received")
+            inputSimulator.switchSpaceLeft()
+        case .switchSpaceRight:
+            print("[CommandServer] switchSpaceRight received")
+            inputSimulator.switchSpaceRight()
+        case .missionControl:
+            print("[CommandServer] missionControl received")
+            inputSimulator.missionControl()
         }
     }
 }
