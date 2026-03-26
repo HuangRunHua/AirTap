@@ -8,5 +8,7 @@
 	</array>
 	<key>LSUIElement</key>
 	<true/>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>AirTap 需要控制 System Events 以执行桌面切换和调度中心等系统操作。</string>
 </dict>
 </plist>

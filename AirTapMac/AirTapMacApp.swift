@@ -4,10 +4,11 @@ import ApplicationServices
 @main
 struct AirTapMacApp: App {
     @StateObject private var server = CommandServer()
+    @StateObject private var touchBarController = TouchBarController()
 
     var body: some Scene {
         MenuBarExtra {
-            StatusMenuView(server: server)
+            StatusMenuView(server: server, touchBarController: touchBarController)
         } label: {
             Image(systemName: server.connectedDevice != nil
                   ? "antenna.radiowaves.left.and.right"
@@ -19,6 +20,7 @@ struct AirTapMacApp: App {
 
 struct StatusMenuView: View {
     @ObservedObject var server: CommandServer
+    @ObservedObject var touchBarController: TouchBarController
     private var accessGranted: Bool { AXIsProcessTrusted() }
 
     var body: some View {
@@ -36,6 +38,14 @@ struct StatusMenuView: View {
                 Label("等待 iPhone 连接…", systemImage: "iphone.slash")
                     .foregroundStyle(.secondary)
             }
+
+            Divider()
+
+            Toggle(isOn: $touchBarController.isEnabled) {
+                Label("Touch Bar", systemImage: "rectangle.bottomhalf.filled")
+            }
+            .toggleStyle(.switch)
+            .controlSize(.small)
 
             Divider()
 
@@ -61,6 +71,9 @@ struct StatusMenuView: View {
         }
         .padding(12)
         .frame(width: 240)
-        .onAppear { server.start() }
+        .onAppear {
+            server.start()
+            touchBarController.start()
+        }
     }
 }

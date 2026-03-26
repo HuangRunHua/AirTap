@@ -1,0 +1,40 @@
+{
+  "manifestVersion": 1,
+  "plugin": {
+    "id": "com.airtap.finder",
+    "name": "Finder",
+    "version": "1.0.0",
+    "targetBundleIds": ["com.apple.finder"],
+    "description": "Finder file management shortcuts"
+  },
+  "actions": [
+    {
+      "id": "new_window",
+      "type": "button",
+      "label": "新建窗口",
+      "icon": "macwindow.badge.plus",
+      "action": { "type": "keyPress", "keyCode": 45, "modifiers": ["command"] }
+    },
+    {
+      "id": "new_folder",
+      "type": "button",
+      "label": "新建文件夹",
+      "icon": "folder.badge.plus",
+      "action": { "type": "keyPress", "keyCode": 45, "modifiers": ["command", "shift"] }
+    },
+    {
+      "id": "get_info",
+      "type": "button",
+      "label": "简介",
+      "icon": "info.circle",
+      "action": { "type": "keyPress", "keyCode": 34, "modifiers": ["command"] }
+    },
+    {
+      "id": "delete",
+      "type": "button",
+      "label": "删除",
+      "icon": "trash",
+      "action": { "type": "keyPress", "keyCode": 51, "modifiers": ["command"] }
+    }
+  ]
+}

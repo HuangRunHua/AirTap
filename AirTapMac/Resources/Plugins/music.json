@@ -1,0 +1,48 @@
+{
+  "manifestVersion": 1,
+  "plugin": {
+    "id": "com.airtap.music",
+    "name": "Music",
+    "version": "1.0.0",
+    "targetBundleIds": ["com.apple.Music"],
+    "description": "Apple Music playback controls"
+  },
+  "actions": [
+    {
+      "id": "prev_track",
+      "type": "button",
+      "label": "上一首",
+      "icon": "backward.fill",
+      "action": { "type": "mediaKey", "key": "previousTrack" }
+    },
+    {
+      "id": "play_pause",
+      "type": "button",
+      "label": "播放/暂停",
+      "icon": "playpause.fill",
+      "action": { "type": "mediaKey", "key": "playPause" }
+    },
+    {
+      "id": "next_track",
+      "type": "button",
+      "label": "下一首",
+      "icon": "forward.fill",
+      "action": { "type": "mediaKey", "key": "nextTrack" }
+    },
+    {
+      "id": "volume",
+      "type": "slider",
+      "label": "音量",
+      "icon": "speaker.wave.2.fill",
+      "config": { "min": 0, "max": 100, "step": 5 },
+      "action": {
+        "type": "appleScript",
+        "script": "set volume output volume {value}"
+      },
+      "state": {
+        "type": "appleScript",
+        "script": "output volume of (get volume settings)"
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "manifestVersion": 1,
+  "plugin": {
+    "id": "com.airtap.safari",
+    "name": "Safari",
+    "version": "1.0.0",
+    "targetBundleIds": ["com.apple.Safari"],
+    "description": "Safari browser shortcuts"
+  },
+  "actions": [
+    {
+      "id": "new_tab",
+      "type": "button",
+      "label": "新标签页",
+      "icon": "plus.square",
+      "action": { "type": "keyPress", "keyCode": 17, "modifiers": ["command"] }
+    },
+    {
+      "id": "close_tab",
+      "type": "button",
+      "label": "关闭标签",
+      "icon": "xmark.square",
+      "action": { "type": "keyPress", "keyCode": 13, "modifiers": ["command"] }
+    },
+    {
+      "id": "refresh",
+      "type": "button",
+      "label": "刷新",
+      "icon": "arrow.clockwise",
+      "action": { "type": "keyPress", "keyCode": 15, "modifiers": ["command"] }
+    },
+    {
+      "id": "back",
+      "type": "button",
+      "label": "后退",
+      "icon": "chevron.left",
+      "action": { "type": "keyPress", "keyCode": 33, "modifiers": ["command"] }
+    },
+    {
+      "id": "forward",
+      "type": "button",
+      "label": "前进",
+      "icon": "chevron.right",
+      "action": { "type": "keyPress", "keyCode": 30, "modifiers": ["command"] }
+    }
+  ]
+}
